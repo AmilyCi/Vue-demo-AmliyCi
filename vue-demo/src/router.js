@@ -15,6 +15,11 @@ export default new Router({
             path: "/1",
             name: "1",
             component: () => import("./views/1.HorseRaceLamp")
+        },
+        {
+            path: "/2",
+            name: "2",
+            component: () => import('./views/2.Calculator/index.vue')
         }
     ]
 });
