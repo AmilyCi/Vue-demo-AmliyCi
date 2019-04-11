@@ -20,6 +20,11 @@ export default new Router({
             path: "/2",
             name: "2",
             component: () => import('./views/2.Calculator/index.vue')
+        },
+        {
+            path: "/3",
+            name: "3",
+            component: () => import('./views/3.BrandList')
         }
     ]
 });
