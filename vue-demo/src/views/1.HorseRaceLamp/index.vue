@@ -1,7 +1,7 @@
 <template>
     <div>
-        <input type="button" value="浪起来" class='btn' @click="lang">
-        <input type="button" value="低调" @click="stop">
+        <input type="button" value="浪起来" class='btn btn-primary' @click="lang">
+        <input type="button" value="低调" class='btn btn-primary' @click="stop">
         <p>{{ msg }}</p>
     </div>
 </template>

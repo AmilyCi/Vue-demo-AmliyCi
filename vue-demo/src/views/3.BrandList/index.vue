@@ -1,5 +1,22 @@
 <template>
     <div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加品牌</h3>
+            </div>
+            <div class="panel-body">
+                <label>
+                    ID:
+                    <input type="text" v-model='id'>
+                </label>
+                <label>
+                    Name:
+                    <input type="text" v-model='name'>
+                </label>
+                <input type="button" class='btn btn-primary' value="添加" @click="add">
+            </div>
+        </div>
+
         <table class="table table-bordered table-hover table-striped">
             <thead>
                 <tr>
@@ -10,8 +27,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
+                <tr v-for="item in list" :key="item.id">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.cTime }}</td>
+                    <td>
+                        <a href="" @click.prevent='del(item.id)'>删除</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -19,5 +41,32 @@
 
 </template>
 <script>
+export default {
+    data(){
+        return {
+            id: '',
+            name: '',
+            list: [
+                {id: 1, name: '奔驰', cTime: new Date()},
+                {id: 2, name: '宝马', cTime: new Date()}
+            ]
+        }
+    },
+    methods:{
+        add(){
+            var car = { id: this.id, name: this.name, cTime: new Date() };
+            this.list.push(car);
+            this.id = this.name = '';
+        },
+        del(id){
+            this.list.some((item,i) => {
+                if(item.id == id){
+                    this.list.splice(i,1);
+                    return true
+                }
+            })
+        }
+    }
+}
 
 </script>
