@@ -14,6 +14,10 @@
                     <input type="text" v-model='name'>
                 </label>
                 <input type="button" class='btn btn-primary' value="添加" @click="add">
+                <label>
+                    搜索名称关键字:
+                    <input type="text" v-model="keywords">
+                </label>
             </div>
         </div>
 
@@ -27,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="item in list" :key="item.id">
+                <tr v-for="item in search(keywords)" :key="item.id">
                     <td>{{ item.id }}</td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.cTime }}</td>
@@ -44,6 +48,7 @@
 export default {
     data(){
         return {
+            keywords: '',
             id: '',
             name: '',
             list: [
@@ -65,6 +70,15 @@ export default {
                     return true
                 }
             })
+        },
+        search(keywords){
+            var newList = [];
+            this.list.forEach(item => {
+                if(item.name.indexOf(keywords) != -1){
+                    newList.push(item)
+                }
+            });
+            return newList;
         }
     }
 }
