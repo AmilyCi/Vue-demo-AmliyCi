@@ -11,12 +11,12 @@
                 </label>
                 <label>
                     Name:
-                    <input type="text" v-model='name'>
+                    <input type="text" v-model='name' @keyup.f2.enter='add'>
                 </label>
                 <input type="button" class='btn btn-primary' value="添加" @click="add">
                 <label>
                     搜索名称关键字:
-                    <input type="text" v-model="keywords">
+                    <input type="text" v-model="keywords" v-focus>
                 </label>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 <tr v-for="item in search(keywords)" :key="item.id">
                     <td>{{ item.id }}</td>
                     <td>{{ item.name }}</td>
-                    <td>{{ item.cTime }}</td>
+                    <td>{{ item.cTime | dateFormate }}</td>
                     <td>
                         <a href="" @click.prevent='del(item.id)'>删除</a>
                     </td>
@@ -45,6 +45,7 @@
 
 </template>
 <script>
+
 export default {
     data(){
         return {
@@ -55,6 +56,32 @@ export default {
                 {id: 1, name: '奔驰', cTime: new Date()},
                 {id: 2, name: '宝马', cTime: new Date()}
             ]
+        }
+    },
+    filters:{
+        dateFormate:function(dateStr,pattern = ''){
+            var dt = new Date(dateStr);
+            var y = dt.getFullYear();
+            var m = (dt.getMonth() + 1).toString().padStart(2,'0');
+            var d = (dt.getDate()).toString().padStart(2,'0');
+            
+            if(pattern.toLowerCase() == 'yyyy-mm-dd'){
+                return `${y}-${m}-${d}`
+            }else{
+                var hh = (dt.getHours()).toString().padStart(2,'0');
+                var mm = (dt.getMinutes()).toString().padStart(2,'0');
+                var ss = (dt.getSeconds()).toString().padStart(2,'0');
+                return  `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+            }
+        }
+    },
+    directives:{
+        focus:{
+            bind: function(){},
+            inserted: function(el){
+                el.focus();
+            },
+            update: function(){}
         }
     },
     methods:{
