@@ -3,6 +3,7 @@
         <router-link to="/1">1.跑马灯</router-link>
         <router-link to="/2">2.简单的计算器</router-link>
         <router-link to="/3">3.品牌列表案例</router-link>
+        <router-link to="/4">4.Vue的动画效果</router-link>
     </div>
 </template>
 <script>

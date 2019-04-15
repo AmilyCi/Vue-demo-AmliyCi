@@ -25,6 +25,11 @@ export default new Router({
             path: "/3",
             name: "3",
             component: () => import('./views/3.BrandList')
+        },
+        {
+            path: "/4",
+            name: "4",
+            component: () => import('./views/4.Animation/index.vue')
         }
     ]
 });
