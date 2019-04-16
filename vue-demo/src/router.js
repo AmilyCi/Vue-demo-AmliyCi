@@ -30,6 +30,12 @@ export default new Router({
             path: "/4",
             name: "4",
             component: () => import('./views/4.Animation/index.vue')
+        },
+        {
+            path: "/5",
+            name: "5",
+            component: () => import('./views/5.AnimationList')
         }
+
     ]
 });
