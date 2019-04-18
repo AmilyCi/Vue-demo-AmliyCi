@@ -35,6 +35,11 @@ export default new Router({
             path: "/5",
             name: "5",
             component: () => import('./views/5.AnimationList')
+        },
+        {
+            path: "/6",
+            name: "6",
+            component: () => import('./views/6.SwitchComponent/index.vue')
         }
 
     ]
