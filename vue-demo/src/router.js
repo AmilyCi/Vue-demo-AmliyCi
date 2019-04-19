@@ -45,6 +45,11 @@ export default new Router({
             path: "/7",
             name: "7",
             component: () => import('./views/7.BallAnimation/index.vue')
+        },
+        {
+            path: "/8",
+            name: "8",
+            component: () => import('./views/8.CommentList/index.vue')
         }
 
     ]

@@ -7,6 +7,7 @@
         <router-link to="/5">5.动画列表</router-link>
         <router-link to="/6">6.组件切换</router-link>
         <router-link to="/7">7.小球动画</router-link>
+        <router-link to="/8">8.发表评论列表</router-link>
     </div>
 </template>
 <script>
@@ -16,6 +17,7 @@ export default {
 </script>
 <style lang='less'>
 #nav {
+  text-align: center;
   padding: 30px;
   a {
     display: block;

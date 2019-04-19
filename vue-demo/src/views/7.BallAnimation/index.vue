@@ -45,7 +45,6 @@ export default {
     height: 15px;
     border-radius: 50%;
     background-color: hotpink;
-    margin: 0 auto;
 }
     
 </style>
