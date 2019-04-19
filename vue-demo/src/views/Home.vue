@@ -6,6 +6,7 @@
         <router-link to="/4">4.Vue的动画效果</router-link>
         <router-link to="/5">5.动画列表</router-link>
         <router-link to="/6">6.组件切换</router-link>
+        <router-link to="/7">7.小球动画</router-link>
     </div>
 </template>
 <script>

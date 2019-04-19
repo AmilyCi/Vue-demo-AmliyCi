@@ -40,6 +40,11 @@ export default new Router({
             path: "/6",
             name: "6",
             component: () => import('./views/6.SwitchComponent/index.vue')
+        },
+        {
+            path: "/7",
+            name: "7",
+            component: () => import('./views/7.BallAnimation/index.vue')
         }
 
     ]
