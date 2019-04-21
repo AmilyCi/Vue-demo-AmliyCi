@@ -31,7 +31,7 @@ export default {
             el.style.transition = "all 1s ease";
             done()
         },
-        afterEnter(el){
+        afterEnter(){
             this.flag = !this.flag;
         }
     }
