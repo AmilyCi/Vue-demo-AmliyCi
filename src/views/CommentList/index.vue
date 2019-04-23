@@ -1,10 +1,17 @@
 <template>
     <div>
-        <comment-box></comment-box>
+        <comment-box @func="loadComments"></comment-box>
         <ul class="list-group">
-            <li class="list-group-item" v-for="item in list" :key="item.id">
-                <span class="badge">{{ item.name }}</span>
+            <li class="list-group-item" v-for="(item, index) in list" :key="item.id">
+                <span class="badge ">
+                    <span class="glyphicon glyphicon-remove" @click="handleClick(index)"></span>
+                </span>
+
+                <span class="badge">
+                     作者：{{ item.user }}
+                </span>
                 {{ item.content }}
+
             </li>
         </ul>
 
@@ -15,11 +22,21 @@ import commentBox from './CommentBox.vue'
 export default {
     data(){
         return {
-            list: [
-                { id: 1, name: '李白', content: '天生我才必有用'},
-                { id: 2, name: '王维', content: '劝君更进一杯酒'},
-                { id: 3, name: '苏轼', content: '横看成岭侧成峰'},
-            ]
+            list: []
+        }
+    },
+    created(){
+        console.log('loa', JSON.parse(localStorage.getItem('cmts')));
+        this.loadComments();
+    },
+    methods:{
+        loadComments(){
+            var list = JSON.parse(localStorage.getItem('cmts') || '[]')
+            this.list = list;
+        },
+        handleClick(index){
+            this.list.splice(index,1);
+            localStorage.setItem('cmts', JSON.stringify(this.list))
         }
     },
     components: {
